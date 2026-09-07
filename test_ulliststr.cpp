@@ -9,7 +9,6 @@
 
 int main(int argc, char* argv[])
 {
-  int arr[10] ={1,2,3,4,5,6,2,1,2,1};
   ULListStr dat;
   dat.push_front("Hi");
   std :: cout<< dat.get(0) << std :: endl;
