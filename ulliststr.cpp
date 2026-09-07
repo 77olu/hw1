@@ -153,10 +153,10 @@ size_t ULListStr::size() const
    *   - MUST RUN in O(1)
    */
   std::string const & ULListStr :: back() const{
-    if(head_->last-head_->first == 0){
-      return 0;
+    if(tail_->last-tail_->first == 0){
+       throw std::invalid_argument("List is empty");
     } else{
-      return head_->val[head_->last];
+      return tail_->val[tail_->last-1];
     }
 
   }
@@ -167,7 +167,7 @@ size_t ULListStr::size() const
    */
   std::string const & ULListStr :: front() const{
      if(head_->last-head_->first == 0){
-      return 0;
+       throw std::invalid_argument("List is empty");
     } else{
       return head_->val[head_->first];
     }
