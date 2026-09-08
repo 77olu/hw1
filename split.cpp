@@ -21,19 +21,19 @@ void split(Node*& in, Node*& odds, Node*& evens)
 if(in == nullptr){
   return;
 }
-
-   if(evenorodd(in->value)){
-   Node* dummy = in->next;
-   in->next = evens;
-   evens = in;
-   in = dummy;
-    return split(in, odds, evens);
+    Node* current = in;
+    Node* dummy = in->next;
+    in = dummy;
+   split(in, odds, evens);
+   if(evenorodd(current->value)){
+   current->next = evens;
+   evens = current;
    } else{
-   Node* dummy1 = in->next;
-    in->next = odds;
-    odds = in;
-    in = dummy1;
-    return split(in, odds, evens);
+
+    current->next = odds;
+    odds = current;
+   
+    
    }
 
 }
